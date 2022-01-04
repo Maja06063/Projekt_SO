@@ -1,4 +1,8 @@
 from generator import Generator
-generator = Generator()
+from procesor import Procesor
 
-generator.generuj ()
+generator = Generator()
+procesor = Procesor()
+
+#generator.generuj ()
+procesor.wczytaj_zad()

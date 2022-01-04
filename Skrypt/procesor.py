@@ -1,12 +1,13 @@
 from zadanie import Zadanie
+from ustawienia import *
 from statystyka import Statystyka
 from algorytmy_szereg import AlgorytmSJF, AlgotyrmLCFS
 
 class Procesor:
+
     statystyka = None
     list_ciag_zad = []
     algorytm_szeregowania = None
-
 
     def uszereguj_ciagi_zad (self):
         
@@ -24,9 +25,13 @@ class Procesor:
     def wczytaj_zad (self):
         
         plik = open("lista_ciagow.txt", "r")
-        zawartosc_pliku = plik.readlines()
+        
+        for i in range(0, ILOSC_CIAGOW):
+            ciag_zadan = []
+            for j in range(0, ILOSC_ZADAN_W_CIAGU):
+                nowe_zad = Zadanie()
+                [nowe_zad.t_wyk, nowe_zad.t_nad] = plik.readline().split("\t")
+                print(nowe_zad)
 
-        for linia in zawartosc_pliku:
-            zadanie_tmczs = Zadanie()
-            [zadanie_tmczs.nr, zadanie_tmczs.t_wyk, zadanie_tmczs.t_nad] = linia.split("\t")
-            
+                ciag_zadan.append(nowe_zad)
+            self.list_ciag_zad.append(ciag_zadan)            
