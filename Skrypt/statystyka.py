@@ -3,6 +3,10 @@ class Statystyka:
     czas_spoznienia = []
     czas_cyklu = []
 
+    def __init__(self):
+        self.czas_spoznienia.clear()
+        self.czas_cyklu.clear()
+
     def sredni_czas_spoznienia(self) -> float:
         return sum(self.czas_spoznienia) / len(self.czas_spoznienia)
 

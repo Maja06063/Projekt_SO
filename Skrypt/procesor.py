@@ -76,4 +76,6 @@ class Procesor:
                 [nowe_zad.t_wyk, nowe_zad.t_nad] = plik.readline().split("\t")
 
                 ciag_zadan.append(nowe_zad)
-            self.list_ciag_zad.append(ciag_zadan)            
+            self.list_ciag_zad.append(ciag_zadan)
+        
+        plik.close()
