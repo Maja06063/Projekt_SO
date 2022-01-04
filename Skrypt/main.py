@@ -5,4 +5,4 @@ generator = Generator()
 procesor = Procesor()
 
 #generator.generuj ()
-procesor.wczytaj_zad()
+procesor.uszereguj_ciagi_zad()

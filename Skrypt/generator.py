@@ -11,11 +11,15 @@ class Generator:
                 plik.write(str(zadanie) + "\n")
         plik.close()
 
+    ########################################################################
+
     def generuj_zad (self)-> Zadanie:
         zad = Zadanie ()
         zad.t_nad = random.randint(0,400)
         zad.t_wyk = random.randint(1,20)
         return zad
+
+    ########################################################################
 
     def generuj (self):
         list_ciag_zad = []
@@ -26,5 +30,3 @@ class Generator:
                 ciag_zadan.append(nowe_zad)
             list_ciag_zad.append(ciag_zadan)
         self.zapisz_liste_ciag (list_ciag_zad)
-
-
