@@ -19,12 +19,17 @@ class Procesor:
         for ciag in self.list_ciag_zad:
             self.szereguj_zad(ciag)
 
+        print("\nOgólne statystyki:\n")
+        print(self.statystyka_ogolna)
+
     ########################################################################
 
-    def __init__(self):
+    def __init__(self, SJF):
         
-        self.algorytm_szeregowania = AlgotyrmLCFS()
-        #self.algorytm_szeregowania = AlgorytmSJF()
+        if SJF:
+            self.algorytm_szeregowania = AlgorytmSJF()
+        else:
+            self.algorytm_szeregowania = AlgotyrmLCFS()
 
     ########################################################################
 
@@ -55,6 +60,8 @@ class Procesor:
                 statystyka_ciagu.czas_cyklu.append(t - int(zadanie_wykonywane.t_nad))
 
         print(statystyka_ciagu)
+        self.statystyka_ogolna.czas_spoznienia.append(statystyka_ciagu.sredni_czas_spoznienia())
+        self.statystyka_ogolna.czas_cyklu.append(statystyka_ciagu.sredni_czas_cyklu())
     
     ########################################################################
 
