@@ -7,7 +7,7 @@ from algorytmy_szereg import AlgorytmSJF, AlgotyrmLCFS
 class Procesor:
 
     statystyka_ogolna = Statystyka()
-    list_ciag_zad = []
+    
     algorytm_szeregowania = None
 
     ########################################################################
@@ -15,6 +15,7 @@ class Procesor:
     def uszereguj_ciagi_zad (self):
         
         self.wczytaj_zad()
+        print(len(self.list_ciag_zad))
 
         for ciag in self.list_ciag_zad:
             self.szereguj_zad(ciag)
@@ -25,7 +26,7 @@ class Procesor:
     ########################################################################
 
     def __init__(self, SJF):
-        
+        self.list_ciag_zad = []
         if SJF:
             self.algorytm_szeregowania = AlgorytmSJF()
         else:
