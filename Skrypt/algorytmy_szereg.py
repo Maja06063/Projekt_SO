@@ -14,6 +14,9 @@ class AlgotyrmLCFS(AlgorytmSzereg):
         dostepne_zadania.sort(key=lambda zadanie: zadanie.t_nad)
         return dostepne_zadania[-1]
 
+    def __str__(self) -> str:
+        return "\nWyniki algorytmu LCFS\n"
+
 ########################################################################
 
 class AlgorytmSJF(AlgorytmSzereg):
@@ -22,3 +25,6 @@ class AlgorytmSJF(AlgorytmSzereg):
         
         dostepne_zadania.sort(key=lambda zadanie: zadanie.t_wyk)
         return dostepne_zadania[0]
+
+    def __str__(self) -> str:
+        return "\nWyniki algorytmu SJF\n"

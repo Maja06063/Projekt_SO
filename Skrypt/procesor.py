@@ -13,14 +13,13 @@ class Procesor:
     ########################################################################
 
     def uszereguj_ciagi_zad (self):
-        
+        print (self.algorytm_szeregowania)
         self.wczytaj_zad()
-        print(len(self.list_ciag_zad))
 
         for ciag in self.list_ciag_zad:
             self.szereguj_zad(ciag)
 
-        print("\nOgólne statystyki:\n")
+        print("\nOgólne statystyki: (czas spóźnienia, czas cyklu)\n")
         print(self.statystyka_ogolna)
 
     ########################################################################
