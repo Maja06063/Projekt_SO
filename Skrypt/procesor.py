@@ -8,15 +8,15 @@ class Procesor:
 
     statystyka_ogolna = Statystyka()
     
-    algorytm_szeregowania = None
+    algorytm = None
 
     ########################################################################
 
     def uszereguj_ciagi_zad (self):
-        print (self.algorytm_szeregowania)
+        print (self.algorytm)
         self.wczytaj_zad()
 
-        for ciag in self.list_ciag_zad:
+        for ciag in self.lista_ciagow:
             self.szereguj_zad(ciag)
 
         print("\nOgólne statystyki: (czas spóźnienia, czas cyklu)\n")
@@ -24,12 +24,9 @@ class Procesor:
 
     ########################################################################
 
-    def __init__(self, SJF):
-        self.list_ciag_zad = []
-        if SJF:
-            self.algorytm_szeregowania = AlgorytmSJF()
-        else:
-            self.algorytm_szeregowania = AlgotyrmLCFS()
+    def __init__(self, algorytm):
+        self.lista_ciagow = []
+        self.algorytm=algorytm
 
     ########################################################################
 
@@ -52,7 +49,7 @@ class Procesor:
 
             else:
 
-                zadanie_wykonywane = self.algorytm_szeregowania.wybierz_zadanie(zadania_przygotowane)
+                zadanie_wykonywane = self.algorytm.wybierz_zadanie(zadania_przygotowane)
                 zadania_przygotowane.remove(zadanie_wykonywane)
 
                 statystyka_ciagu.czas_spoznienia.append(t - int(zadanie_wykonywane.t_nad))
@@ -67,7 +64,7 @@ class Procesor:
 
     def wczytaj_zad (self):
         
-        plik = open("lista_ciagow_procesow.txt", "r")
+        plik = open("lista_ciagow_zadan.txt", "r")
         
         for i in range(0, ILOSC_CIAGOW):
             ciag_zadan = []
@@ -76,6 +73,6 @@ class Procesor:
                 [nowe_zad.t_wyk, nowe_zad.t_nad] = plik.readline().split("\t")
 
                 ciag_zadan.append(nowe_zad)
-            self.list_ciag_zad.append(ciag_zadan)
+            self.lista_ciagow.append(ciag_zadan)
         
         plik.close()

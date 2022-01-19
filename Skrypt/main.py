@@ -1,12 +1,12 @@
 from generator import Generator
-from procesor import Procesor
+from procesor import *
 import sys
 
 if __name__ == "__main__":
 
     generator = Generator()
-    procesorSJF = Procesor(True)
-    procesorLCFS = Procesor(False)
+    procesorSJF = Procesor(AlgorytmSJF())
+    procesorLCFS = Procesor(AlgotyrmLCFS())
 
     if "-g" in sys.argv:
         generator.generuj (False)
