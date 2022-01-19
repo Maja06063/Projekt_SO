@@ -67,7 +67,7 @@ class Procesor:
 
     def wczytaj_zad (self):
         
-        plik = open("lista_ciagow.txt", "r")
+        plik = open("lista_ciagow_procesow.txt", "r")
         
         for i in range(0, ILOSC_CIAGOW):
             ciag_zadan = []

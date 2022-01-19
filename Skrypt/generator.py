@@ -1,3 +1,4 @@
+from Skrypt.ustawienia import ILOSC_STRON_W_CIAGU
 from ustawienia import ILOSC_CIAGOW, ILOSC_ZADAN_W_CIAGU
 from zadanie import Zadanie
 import random
@@ -5,7 +6,7 @@ import random
 class Generator:
 
     def zapisz_liste_ciag (self, list_ciag_zad):
-        plik = open("lista_ciagow.txt", "w")
+        plik = open("lista_ciagow_procesow.txt", "w")
         for ciag in list_ciag_zad:
             for zadanie in ciag:
                 plik.write(str(zadanie) + "\n")
@@ -21,12 +22,20 @@ class Generator:
 
     ########################################################################
 
-    def generuj (self):
-        list_ciag_zad = []
+    def generuj (self,czy_strony):
+        list_ciagow = []
         for i in range(0, ILOSC_CIAGOW):
-            ciag_zadan = []
-            for j in range(0, ILOSC_ZADAN_W_CIAGU):
-                nowe_zad = self.generuj_zad ()
-                ciag_zadan.append(nowe_zad)
-            list_ciag_zad.append(ciag_zadan)
-        self.zapisz_liste_ciag (list_ciag_zad)
+            if czy_strony:
+                ciag_stron = []
+                for j in range(0, ILOSC_STRON_W_CIAGU):
+                    nowe_zad = self.generuj_str ()
+                    ciag_stron.append(nowe_zad)
+                list_ciagow.append(ciag_stron)
+            else:       
+                ciag_zadan = []
+                for j in range(0, ILOSC_ZADAN_W_CIAGU):
+                    nowe_zad = self.generuj_zad ()
+                    ciag_zadan.append(nowe_zad)
+                list_ciagow.append(ciag_zadan)
+
+        self.zapisz_liste_ciag (list_ciagow)

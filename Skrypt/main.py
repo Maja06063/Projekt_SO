@@ -9,7 +9,7 @@ if __name__ == "__main__":
     procesorLCFS = Procesor(False)
 
     if "-g" in sys.argv:
-        generator.generuj ()
+        generator.generuj (False)
 
     if "-SJF" in sys.argv:   
         procesorSJF.uszereguj_ciagi_zad()
