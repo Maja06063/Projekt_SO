@@ -10,6 +10,7 @@ if __name__ == "__main__":
 
     if "-g" in sys.argv:
         generator.generuj (False)
+        generator.generuj(True)
 
     if "-SJF" in sys.argv:   
         procesorSJF.uszereguj_ciagi_zad()

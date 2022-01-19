@@ -127,4 +127,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-Skrypt/lista_ciagow.txt
+Skrypt/*.txt
