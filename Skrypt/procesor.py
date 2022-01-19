@@ -1,3 +1,4 @@
+from ramka import Ramka
 from typing import List
 from zadanie import Zadanie
 from ustawienia import *
@@ -21,6 +22,18 @@ class Procesor:
 
         print("\nOgólne statystyki: (czas spóźnienia, czas cyklu)\n")
         print(self.statystyka_ogolna)
+
+    ########################################################################
+
+    def uszereguj_ciagi_stron (self):
+        print (self.algorytm)
+        self.wczytaj_strony()
+
+        for ciag in self.lista_ciagow:
+            self.szereguj_strony(ciag)
+
+        print("\nOgólne statystyki: (ilość zmian stron)\n")
+        print(self.statystyka_ogolna.srednia_ilosc_podmian_stron())
 
     ########################################################################
 
@@ -59,6 +72,25 @@ class Procesor:
         print(statystyka_ciagu)
         self.statystyka_ogolna.czas_spoznienia.append(statystyka_ciagu.sredni_czas_spoznienia())
         self.statystyka_ogolna.czas_cyklu.append(statystyka_ciagu.sredni_czas_cyklu())
+
+    ########################################################################
+
+    def szereguj_strony (self, ciag: List):
+
+        licznik_podmian = 0
+        ramka = Ramka(3)
+        while len(ciag) > 0 :
+
+            for strona in ciag:
+                if ramka.czy_zawiera(strona):
+                    pass
+                else: 
+                    licznik_podmian +=1
+                    numer_miejsca_w_ramce = self.algorytm.wybierz_strone()
+                    ramka.zmien_strone(numer_miejsca_w_ramce, strona)
+
+        print(licznik_podmian)
+        self.statystyka_ogolna.ilosc_podmian_stron.append(licznik_podmian)
     
     ########################################################################
 
@@ -74,5 +106,21 @@ class Procesor:
 
                 ciag_zadan.append(nowe_zad)
             self.lista_ciagow.append(ciag_zadan)
+        
+        plik.close()
+
+    ########################################################################
+
+    def wczytaj_strony (self):
+        
+        plik = open("lista_ciagow_stron.txt", "r")
+        
+        for i in range(0, ILOSC_CIAGOW):
+            ciag_stron = []
+            for j in range(0, ILOSC_STRON_W_CIAGU):
+                numer_strony = int(plik.readline())
+
+                ciag_stron.append(nowe_zad)
+            self.lista_ciagow.append(ciag_stron)
         
         plik.close()
