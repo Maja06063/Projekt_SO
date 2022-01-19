@@ -1,16 +1,16 @@
-from strona import Strona
+
 
 class AlgorytmWymianyStron:
 
-    def wybierz_strone(self, dostepne_zadania) -> Strona :
+    def wybierz_strone(self) -> int:
         raise NotImplementedError("Błąd - nie zaimplementowano metody")
 
 ########################################################################
 
 class AlgotyrmLFU(AlgorytmWymianyStron):
 
-    def wybierz_strone(self, dostepne_zadania) -> Strona:
-        pass
+    def wybierz_strone(self) -> int:
+        return 0
     
     def __str__(self) -> str:
         return "\nWyniki algorytmu LFU\n"
@@ -19,8 +19,8 @@ class AlgotyrmLFU(AlgorytmWymianyStron):
 
 class AlgorytmMFU(AlgorytmWymianyStron):
 
-    def wybierz_strone(self, dostepne_zadania) -> Strona:
-        pass
+    def wybierz_strone(self) -> int:
+        return 0
 
     def __str__(self) -> str:
         return "\nWyniki algorytmu MFU\n"

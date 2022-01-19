@@ -16,4 +16,4 @@ class Statystyka:
             ";"  + str(self.sredni_czas_cyklu())
 
     def srednia_ilosc_podmian_stron (self) -> float:
-        return sum(slef.ilosc_podmian_stron) / len(self.ilosc_podmian_stron)
+        return sum(self.ilosc_podmian_stron) / len(self.ilosc_podmian_stron)

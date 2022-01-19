@@ -4,7 +4,7 @@ from zadanie import Zadanie
 from ustawienia import *
 from statystyka import Statystyka
 from algorytmy_szereg import AlgorytmSJF, AlgotyrmLCFS
-
+from algorytmy_wymiany_stron import AlgorytmMFU, AlgotyrmLFU
 class Procesor:
 
     statystyka_ogolna = Statystyka()
@@ -79,15 +79,14 @@ class Procesor:
 
         licznik_podmian = 0
         ramka = Ramka(3)
-        while len(ciag) > 0 :
 
-            for strona in ciag:
-                if ramka.czy_zawiera(strona):
-                    pass
-                else: 
-                    licznik_podmian +=1
-                    numer_miejsca_w_ramce = self.algorytm.wybierz_strone()
-                    ramka.zmien_strone(numer_miejsca_w_ramce, strona)
+        for strona in ciag:
+            if ramka.czy_zawiera(strona):
+                pass
+            else: 
+                licznik_podmian +=1
+                numer_miejsca_w_ramce = self.algorytm.wybierz_strone()
+                ramka.zmien_strone(numer_miejsca_w_ramce, strona)
 
         print(licznik_podmian)
         self.statystyka_ogolna.ilosc_podmian_stron.append(licznik_podmian)
@@ -120,7 +119,7 @@ class Procesor:
             for j in range(0, ILOSC_STRON_W_CIAGU):
                 numer_strony = int(plik.readline())
 
-                ciag_stron.append(nowe_zad)
+                ciag_stron.append(numer_strony)
             self.lista_ciagow.append(ciag_stron)
         
         plik.close()
