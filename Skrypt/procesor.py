@@ -76,7 +76,7 @@ class Procesor:
     ########################################################################
 
     def szereguj_strony (self, ciag: List):
-
+        self.algorytm.resetuj_ilosc_wystapien()
         licznik_podmian = 0
         ramka = Ramka(3)
 
@@ -85,8 +85,10 @@ class Procesor:
                 pass
             else: 
                 licznik_podmian +=1
-                numer_miejsca_w_ramce = self.algorytm.wybierz_strone()
+                numer_miejsca_w_ramce = self.algorytm.wybierz_miejsce_w_ramce(ramka,strona)
                 ramka.zmien_strone(numer_miejsca_w_ramce, strona)
+            
+            self.algorytm.dodaj_wystapienie(strona)
 
         print(licznik_podmian)
         self.statystyka_ogolna.ilosc_podmian_stron.append(licznik_podmian)

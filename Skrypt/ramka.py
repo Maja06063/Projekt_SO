@@ -6,7 +6,7 @@ class Ramka:
 
     def __init__(self,rozmiar) -> None:
         self.rozmiar = rozmiar
-        self.miejsce_w_ramce = [3]
+        self.miejsce_w_ramce = [0]*rozmiar
 
     def zmien_strone(self,numer_miejsca_w_ramce,strona):
         self.miejsce_w_ramce[numer_miejsca_w_ramce] = strona
