@@ -4,8 +4,18 @@ from ustawienia import *
 from statystyka import Statystyka
 from algorytmy_szereg import AlgorytmSJF, AlgotyrmLCFS
 from algorytmy_wymiany_stron import AlgorytmMFU, AlgotyrmLFU
-
+"""
+Klasa Procesor zajmuje się wczytaniem danych oraz przeprowadzeniem  całej symulacji.
+"""
 class Procesor:
+
+    """
+    Metoda __init__ służy do ustawienia  odpowiedniego algorytmu
+    oraz stworzenia struktur danych potrzebnych do symulacji.
+
+    Argumenty:
+    algorytm - obiekt reprezentujący algorytm używany w symulacji.
+    """
 
     def __init__(self, algorytm):
 
@@ -14,6 +24,18 @@ class Procesor:
         self.statystyka_ogolna = Statystyka()
 
     ########################################################################
+
+    """
+    Metoda uszereguj_ciagi_zad służy do kontroli całej symulacji.
+    Wywołuje ona odpowiednie metody wczytujące dane i wykonujące symulacje.
+    Służy do szeregowania zadań.
+
+    Argumenty:
+    Metoda nie przyjmuje argumentów.
+
+    Zwraca:
+    Metoda nic nie zwraca
+    """
 
     def uszereguj_ciagi_zad (self):
         print (self.algorytm)
@@ -27,6 +49,18 @@ class Procesor:
 
     ########################################################################
 
+    """
+    Metoda uszereguj_ciagi_stron służy do kontroli całej symulacji.
+    Wywołuje ona odpowiednie metody wczytujące dane i wykonujące symulacje.
+    Służy do zmiany stron.
+
+    Argumenty:
+    Metoda nie przyjmuje argumentów.
+
+    Zwraca:
+    Metoda nic nie zwraca
+    """
+
     def uszereguj_ciagi_stron (self):
         print (self.algorytm)
         self.wczytaj_strony()
@@ -38,6 +72,16 @@ class Procesor:
         print(self.statystyka_ogolna.srednia_ilosc_podmian_stron())
 
     ########################################################################
+
+    """
+    Metoda szereguj_zad służy do uszeregowania zadań znajdujących się w ciągu.
+    
+    Argumenty: 
+    ciag - ciąg zadań do uszeregowania danym algorytmem.
+
+    Zwraca:
+    Metoda nic nie zwraca
+    """
 
     def szereguj_zad (self, ciag: list):
 
@@ -71,6 +115,16 @@ class Procesor:
 
     ########################################################################
 
+    """
+    Metoda szereguj_strony służy do przeprowadzenia wymian stron znajdujących się w ciągu. 
+    
+    Argumenty: 
+    ciag - ciąg stron do wymiany danym algorytmem.
+
+    Zwraca:
+    Metoda nic nie zwraca
+    """
+
     def szereguj_strony (self, ciag: list):
         self.algorytm.resetuj_ilosc_wystapien()
         licznik_podmian = 0
@@ -91,6 +145,16 @@ class Procesor:
     
     ########################################################################
 
+    """
+    Metoda wczytaj_zad służy do wczytania zadań z wcześniej wygenerowanego pliku.
+    
+    Argumenty: 
+    Metoda nie przyjmuje żadnych argumentów.
+
+    Zwraca:
+    Metoda nic nie zwraca
+    """
+
     def wczytaj_zad (self):
         
         plik = open("lista_ciagow_zadan.txt", "r")
@@ -107,6 +171,16 @@ class Procesor:
         plik.close()
 
     ########################################################################
+
+    """
+    Metoda wczytaj_strony służy do wczytania numerów stron z wcześniej wygenerowanego pliku.
+    
+    Argumenty: 
+    Metoda nie przyjmuje żadnych argumentów.
+
+    Zwraca:
+    Metoda nic nie zwraca
+    """
 
     def wczytaj_strony (self):
         
