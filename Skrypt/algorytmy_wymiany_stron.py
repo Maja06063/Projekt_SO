@@ -19,6 +19,7 @@ class AlgorytmWymianyStron:
 class AlgotyrmLFU(AlgorytmWymianyStron):
 
     def wybierz_miejsce_w_ramce(self,ramka,numer_strony) -> int:
+
         i_min = 0
         liczba_wystapien_min = 999
 
@@ -37,9 +38,12 @@ class AlgotyrmLFU(AlgorytmWymianyStron):
 class AlgorytmMFU(AlgorytmWymianyStron):
 
     def wybierz_miejsce_w_ramce(self,ramka,numer_strony) -> int:
+
+        for i in range(0,ramka.rozmiar):
+            if ramka.miejsce_w_ramce[i] == 0:
+                return i
         i_max = 0
         liczba_wystapien_max = 0
-
         for i in range(0,ramka.rozmiar): 
             if self.ilosc_wystapien [ramka.miejsce_w_ramce[i]] > liczba_wystapien_max:
                 i_max = i

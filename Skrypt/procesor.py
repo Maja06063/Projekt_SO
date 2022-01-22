@@ -5,11 +5,14 @@ from ustawienia import *
 from statystyka import Statystyka
 from algorytmy_szereg import AlgorytmSJF, AlgotyrmLCFS
 from algorytmy_wymiany_stron import AlgorytmMFU, AlgotyrmLFU
+
 class Procesor:
 
-    statystyka_ogolna = Statystyka()
-    
-    algorytm = None
+    def __init__(self, algorytm):
+
+        self.lista_ciagow = []
+        self.algorytm=algorytm
+        self.statystyka_ogolna = Statystyka()
 
     ########################################################################
 
@@ -34,12 +37,6 @@ class Procesor:
 
         print("\nOgólne statystyki: (ilość zmian stron)\n")
         print(self.statystyka_ogolna.srednia_ilosc_podmian_stron())
-
-    ########################################################################
-
-    def __init__(self, algorytm):
-        self.lista_ciagow = []
-        self.algorytm=algorytm
 
     ########################################################################
 
