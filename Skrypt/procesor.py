@@ -1,5 +1,4 @@
 from ramka import Ramka
-from typing import List
 from zadanie import Zadanie
 from ustawienia import *
 from statystyka import Statystyka
@@ -40,7 +39,7 @@ class Procesor:
 
     ########################################################################
 
-    def szereguj_zad (self, ciag: List):
+    def szereguj_zad (self, ciag: list):
 
         zadania_przygotowane = []
         t = 0
@@ -72,7 +71,7 @@ class Procesor:
 
     ########################################################################
 
-    def szereguj_strony (self, ciag: List):
+    def szereguj_strony (self, ciag: list):
         self.algorytm.resetuj_ilosc_wystapien()
         licznik_podmian = 0
         ramka = Ramka(3)
