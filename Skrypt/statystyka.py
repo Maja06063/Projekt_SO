@@ -1,4 +1,16 @@
+"""
+Klasa Statystyka zajmuje się zapamiętywaniem wszelkich statystyk przebiegów symulacyjnych
+dla różnych algorytmów. Zaznaczyć należy, że statystyka nie wie, dla jakiego algorytmu jest
+prowadzona. Taką wiedzę posiada klasa procesor.
+"""
+
 class Statystyka:
+
+    """
+    Konstruktor klasy Statystyka.
+    Wszelkie listy zostały zadeklarowane w konstruktorze, aby mieć pewność, że będą niezależne
+    dla każdego utworzonego obiektu.
+    """
 
     def __init__(self):
         self.czas_spoznienia = []

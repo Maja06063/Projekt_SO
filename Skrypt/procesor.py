@@ -74,7 +74,7 @@ class Procesor:
     def szereguj_strony (self, ciag: list):
         self.algorytm.resetuj_ilosc_wystapien()
         licznik_podmian = 0
-        ramka = Ramka(3)
+        ramka = Ramka(ROZMIAR_RAMKI)
 
         for strona in ciag:
             if ramka.czy_zawiera(strona):

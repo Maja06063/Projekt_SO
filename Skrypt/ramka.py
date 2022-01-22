@@ -1,5 +1,3 @@
-from xmlrpc.client import Boolean
-
 
 class Ramka:
     rozmiar = 0
@@ -11,5 +9,5 @@ class Ramka:
     def zmien_strone(self,numer_miejsca_w_ramce,strona):
         self.miejsce_w_ramce[numer_miejsca_w_ramce] = strona
 
-    def czy_zawiera(self,strona) -> Boolean:
+    def czy_zawiera(self,strona) -> bool:
         return strona in self.miejsce_w_ramce
